@@ -8,15 +8,22 @@
 # 출력
 # 첫째 줄에 A를 B로 바꾸는 연산 횟수의 최솟값을 출력한다. A를 B로 바꿀 수 없을 때는 -1을 출력한다.
 
-from sys import stdin
-init = stdin.readline()
-tar = stdin.readline()
-init_diff = []
-tar_diff = []
+def solution(first, second):
+    if sorted(first) != sorted(second):
+        return -1
 
-for i in range(len(init)):
-    if init[i]
+    answer = len(first)
+    length = answer - 1
 
-# 끝에서 부터 비교하다가
-# 다른게 나옴
-# 그러면 tar은 뒤에서부터, init은 앞에서부터 비교
+    for i in range(length, -1, -1):
+        if first[i] == second[length]:
+            answer -= 1
+            length -= 1
+
+    return answer
+
+import sys
+input = sys.stdin.readline
+first, second = input(), input()
+
+print(solution(first, second))
